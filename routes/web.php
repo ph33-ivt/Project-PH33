@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-     echo 'aa';
+     echo 'aa11';
 });
 
 Auth::routes();
