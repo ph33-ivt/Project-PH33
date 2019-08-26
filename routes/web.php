@@ -13,9 +13,28 @@
 
 Route::get('/', function () {
 
-     echo 'aa11';
+     return view('welcome');
 });
 
 Auth::routes();
+//Route trang user
+Route::group([
+	'as' => 'user.'
+], function(){
+	Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home');
+});
+//show form contact
+Route::get('/contact-us', 'ContactController@index')->name('form-contact');
+//send mail contact
+Route::post('/contact-us', 'ContactController@sendContact')->name('send-contact');
+
+//route trang admin
+Route::group([
+	'middleware' => 'isAdmin',
+	'namespace' => 'Admin',
+	'as' => 'admin.',
+	'prefix' => 'admin'
+], function(){
+	Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+});
