@@ -24,6 +24,7 @@ Route::group([
 	Route::get('/home', 'HomeController@index')->name('home');
 
 });
+Route::get('/categories', 'CategoryController@index');
 //show form contact
 Route::get('/contact-us', 'ContactController@index')->name('form-contact');
 //send mail contact
