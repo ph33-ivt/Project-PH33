@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Mail\ContactMail;
+use App\Http\Requests\ContactRequest;
 
 class ContactController extends Controller
 {
@@ -17,7 +18,7 @@ class ContactController extends Controller
         return view('user.contact_us');
     }
 
-    public function sendContact(Request $request)
+    public function sendContact(ContactRequest $request)
     {
         $data = $request->all();
         //code send mail
